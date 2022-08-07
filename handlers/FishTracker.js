@@ -3,6 +3,11 @@ const { db } = require("../utils/admin");
 exports.fishTracker = async (req, res) => {
     const fishTrackerRef = db.collection('CrimsCastFishTacker');
     try{
+            // fishTrackerRef.doc(game).collection('Fish').get().then((snapshot) => {console.log(snapshot.docs.map((doc) => ({
+            //     id: doc.id,
+            //     ...doc.data(),
+            // }))
+            // )});
             fishTrackerRef.get().then((snapshot) => {
             const data = snapshot.docs.map((doc) => ({
             id: doc.id,
