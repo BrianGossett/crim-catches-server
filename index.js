@@ -5,6 +5,7 @@ const app = express();
 const { gameList } = require('./handlers/GameList');
 const { gamesFish } = require('./handlers/GamesFish');
 const { addFish } = require('./handlers/AddFish');
+const { addGame } = require('./handlers/AddGame');
 
 const PORT = process.env.PORT || 5050
 
@@ -12,7 +13,7 @@ const PORT = process.env.PORT || 5050
 //const { db } = require("./utils/admin");
 
 app.get('/', (req, res) => {
-    res.send('This is my demo project')
+    res.send('You should not be here')
 })
 
 app.get('/gamelist', gameList);
@@ -20,6 +21,8 @@ app.get('/gamelist', gameList);
 app.get('/gamesfish', gamesFish);
 
 app.post('/newfish', addFish);
+
+app.post('/newgame', addGame);
 
 
 app.listen(PORT, function () {
