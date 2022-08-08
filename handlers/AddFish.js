@@ -7,6 +7,7 @@ exports.addFish = async (req, res) => {
             var fish = JSON.parse(req.query.fish);
             const newFishRef = db.collection('CrimsCastFishTacker');
             newFishRef.doc(game).collection('Fish').add(fish);
+            return res.status(201).json({ message: "Fish added successfully" });
         } catch (error) {
             return res
             .status(500)
