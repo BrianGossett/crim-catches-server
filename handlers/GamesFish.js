@@ -4,6 +4,7 @@ exports.gamesFish = async (req, res) => {
     const fishTrackerRef = db.collection('CrimsCastFishTacker');
     try{
         var game = req.query.game;
+        game = game.replace("_", " ");
         fishTrackerRef.doc(game).collection('Fish').get().then((snapshot2) => {
             const data = snapshot2.docs.map((nestDoc) => ({
             id: nestDoc.id,
